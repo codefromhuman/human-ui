@@ -5,17 +5,37 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "scripts": {
-    "build": "rollup -c"
+    "lib:build": "rollup -c",
+    "storybook:start": "storybook dev -p 6006",
+    "storybook:build": "pnpm tailwind:build && pnpm storybook build",
+    "storybook:package": "build-storybook -o design-system",
+    "tailwind:build": "npx tailwindcss -i ./src/styles/tailwind/input.css -o ./src/styles/tailwind/output.css"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
+    "@storybook/addon-essentials": "^7.6.8",
+    "@storybook/addon-interactions": "^7.6.8",
+    "@storybook/addon-links": "^7.6.8",
+    "@storybook/addon-onboarding": "^1.0.10",
+    "@storybook/addon-styling-webpack": "^0.0.6",
+    "@storybook/addons": "^7.6.8",
+    "@storybook/blocks": "^7.6.8",
+    "@storybook/react": "^7.6.8",
+    "@storybook/react-webpack5": "^7.6.8",
+    "@storybook/test": "^7.6.8",
+    "@storybook/theming": "^7.6.8",
     "@types/node": "^20.11.0",
     "@types/react": "^18.2.47",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.33",
     "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "rollup": "^4.9.5",
     "rollup-plugin-dts": "^6.1.0",
+    "storybook": "^7.6.8",
+    "tailwindcss": "^3.4.1",
     "tslib": "^2.6.2",
     "typescript": "^5.3.3"
   },
@@ -25,5 +45,8 @@
     "email": "wallacegmelo@codefromhuman.org.br",
     "url": "https://codefromhuman.org.br/supporters/wallacegmelo"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "tw-merge": "0.0.1-alpha.3"
+  }
 }
